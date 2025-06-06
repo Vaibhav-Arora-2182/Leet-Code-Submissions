@@ -1,4 +1,3 @@
-
 class Solution:
     def smallestEquivalentString(self, s1: str, s2: str, baseStr: str) -> str:
         parent = list(range(26))
@@ -18,6 +17,6 @@ class Solution:
                     parent[px] = py
 
         for a, b in zip(s1, s2):
-            union(ord(a) - ord('a'), ord(b) - ord('a'))
+            union(ord(a) - ord("a"), ord(b) - ord("a"))
 
-        return ''.join(chr(find(ord(c) - ord('a')) + ord('a')) for c in baseStr)
+        return "".join(chr(find(ord(c) - ord("a")) + ord("a")) for c in baseStr)

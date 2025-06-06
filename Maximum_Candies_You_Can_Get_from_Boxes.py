@@ -1,18 +1,24 @@
 from collections import deque
 from typing import List
 
+
 class Solution:
-    def maxCandies(self, status: List[int], candies: List[int],
-                   keys: List[List[int]], containedBoxes: List[List[int]],
-                   initialBoxes: List[int]) -> int:
-        
+    def maxCandies(
+        self,
+        status: List[int],
+        candies: List[int],
+        keys: List[List[int]],
+        containedBoxes: List[List[int]],
+        initialBoxes: List[int],
+    ) -> int:
+
         n = len(status)
         used = [False] * n
         has_key = [False] * n
         have_box = [False] * n
 
         queue = deque()
-        
+
         for box in initialBoxes:
             have_box[box] = True
             if status[box] == 1:
