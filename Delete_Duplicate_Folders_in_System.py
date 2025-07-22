@@ -120,7 +120,9 @@ if __name__ == "__main__":
     solution = Solution()
     for name, tc in testcases.items():
         start = time.perf_counter()
-        result = solution.deleteDuplicateFolder(tc["paths"])
+        params = {k: v for k, v in tc.items() if k != "ans"}
+
+        result = solution.deleteDuplicateFolder(**params)
         end = time.perf_counter()
 
         expected = tc["ans"]

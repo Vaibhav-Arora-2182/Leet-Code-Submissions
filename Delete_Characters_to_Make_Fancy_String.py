@@ -66,7 +66,8 @@ if __name__ == "__main__":
     solution = Solution()
     for name, tc in testcases.items():
         start = time.perf_counter()
-        result = solution.makeFancyString(tc["s"])
+        params = {k: v for k, v in tc.items() if k != "ans"}
+        result = solution.makeFancyString(**params)
         end = time.perf_counter()
 
         expected = tc["ans"]
