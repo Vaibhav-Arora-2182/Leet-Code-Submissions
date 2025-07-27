@@ -18,18 +18,14 @@ class Solution:
     """
 
     def maxSubarrays(self, n: int, conflictingPairs: List[List[int]]) -> int:
-        # Group all `u` values by their `v` endpoint
+
         right = [[] for _ in range(n + 1)]
         for a, b in conflictingPairs:
             right[max(a, b)].append(min(a, b))
 
         ans = 0
-        left = [
-            0,
-            0,
-        ]  # [top1, top2]: most recent and second most recent conflict starter
-        bonus = [0] * (n + 1)  # bonus[i] = gain if the conflict caused by i is removed
-
+        left = [0, 0]
+        bonus = [0] * (n + 1)
         for r in range(1, n + 1):
             for l in right[r]:
                 if l > left[0]:
