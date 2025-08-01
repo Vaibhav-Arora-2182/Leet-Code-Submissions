@@ -23,6 +23,7 @@ class Solution:
             prev = cur
         return len(result)
 
+
 if __name__ == "__main__":
     solution = Solution()
     testcases = [
