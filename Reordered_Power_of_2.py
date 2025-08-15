@@ -48,9 +48,6 @@ class Solution:
         return sorted_str(n) in power_set
 
 
-# ------------------------
-# Test cases
-# ------------------------
 test_cases = [
     {"n": 1, "ans": True},
     {"n": 10, "ans": False},
@@ -62,21 +59,22 @@ test_cases = [
     {"n": 123, "ans": False},
 ]
 
-sol = Solution()
+if __name__ == "__main__":
+    sol = Solution()
 
-for ind, test_case in enumerate(test_cases):
-    start = time.time()
-    params = {k: v for k, v in test_case.items() if k != "ans"}
-    ans = sol.reorderedPowerOf2(**params)
-    end = time.time()
-    elapsed_ms = (end - start) * 1000
+    for ind, test_case in enumerate(test_cases):
+        start = time.time()
+        params = {k: v for k, v in test_case.items() if k != "ans"}
+        ans = sol.reorderedPowerOf2(**params)
+        end = time.time()
+        elapsed_ms = (end - start) * 1000
 
-    if ans != test_case["ans"]:
-        print(
-            f"Test Case - {ind + 1} FAILED\n"
-            f"Expected: {test_case['ans']}, Got: {ans}\n"
-            f"Test Case = {test_case} "
-            f"(Time: {elapsed_ms:.4f} ms)\n"
-        )
-    else:
-        print(f"Test Case - {ind + 1} PASSED (Time: {elapsed_ms:.4f} ms)")
+        if ans != test_case["ans"]:
+            print(
+                f"Test Case - {ind + 1} FAILED\n"
+                f"Expected: {test_case['ans']}, Got: {ans}\n"
+                f"Test Case = {test_case} "
+                f"(Time: {elapsed_ms:.4f} ms)\n"
+            )
+        else:
+            print(f"Test Case - {ind + 1} PASSED (Time: {elapsed_ms:.4f} ms)")
