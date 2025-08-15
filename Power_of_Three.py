@@ -9,10 +9,6 @@ class Solution:
         An integer n is a power of three if there exists an integer x such that:
             n == 3 ** x
 
-        This function uses the mathematical property that the maximum power of
-        three within the range of signed 32-bit integers is 3^19 = 1162261467.
-        If n is a positive divisor of 3^19, it must be a power of three.
-
         Args:
             n (int): The integer to check.
 
