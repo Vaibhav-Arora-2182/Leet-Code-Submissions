@@ -1,5 +1,6 @@
 import time
 
+
 class Solution:
     """
     Solution class for checking if a given integer is a power of four.
@@ -7,7 +8,7 @@ class Solution:
     A power of four is an integer of the form:
         n = 4^x
     where x is a non-negative integer (x >= 0).
-    
+
     Constraints:
     - n can be positive, negative, or zero.
     - Returns True only for positive powers of four (including 1, since 4^0 = 1).
@@ -54,12 +55,12 @@ if __name__ == "__main__":
     sol = Solution()
 
     test_cases = [
-        {"n": 16, "ans": True},   
-        {"n": 5, "ans": False},   
-        {"n": 1, "ans": True},    
-        {"n": 64, "ans": True},   
-        {"n": 0, "ans": False},   
-        {"n": -4, "ans": False},  
+        {"n": 16, "ans": True},
+        {"n": 5, "ans": False},
+        {"n": 1, "ans": True},
+        {"n": 64, "ans": True},
+        {"n": 0, "ans": False},
+        {"n": -4, "ans": False},
     ]
 
     for ind, test_case in enumerate(test_cases):
