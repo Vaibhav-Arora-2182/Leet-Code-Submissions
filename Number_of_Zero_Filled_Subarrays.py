@@ -49,8 +49,8 @@ if __name__ == "__main__":
     ]
 
     for ind, test_case in enumerate(test_cases):
-        params = {k: v for k, v in test_case.items() if k != "ans"}
         start = time.time()
+        params = {k: v for k, v in test_case.items() if k != "ans"}
         ans = sol.zeroFilledSubarray(**params)
         end = time.time()
         elapsed_ms = (end - start) * 1000
