@@ -1,10 +1,11 @@
 import time
 from typing import List
 
+
 class Solution:
     """
     Given an m x n binary matrix, return the number of square submatrices with all ones.
-    
+
     Example:
     Input:
     [
@@ -22,7 +23,7 @@ class Solution:
         - dp[i][j] = size of the largest square ending at (i,j).
         - Transition: dp[i][j] = 1 + min(top, left, top-left) if matrix[i][j]==1.
         - Sum all dp[i][j] to get the total number of squares.
-        
+
         Time Complexity: O(m*n)
         Space Complexity: O(m*n)
         """
@@ -39,7 +40,7 @@ class Solution:
                     if i == 0 or j == 0:
                         dp[i][j] = 1
                     else:
-                        dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])
+                        dp[i][j] = 1 + min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1])
                     total += dp[i][j]
 
         return total
@@ -49,11 +50,14 @@ if __name__ == "__main__":
     sol = Solution()
 
     test_cases = [
-        {"matrix": [[0,1,1,1],[1,1,1,1],[0,1,1,1]], "ans": 15},
-        {"matrix": [[1,0,1],[1,1,0],[1,1,0]], "ans": 7},
+        {"matrix": [[0, 1, 1, 1], [1, 1, 1, 1], [0, 1, 1, 1]], "ans": 15},
+        {"matrix": [[1, 0, 1], [1, 1, 0], [1, 1, 0]], "ans": 7},
         {"matrix": [[1]], "ans": 1},
         {"matrix": [[0]], "ans": 0},
-        {"matrix": [[1,1,1],[1,1,1],[1,1,1]], "ans": 14},  # 9 of size1, 4 of size2, 1 of size3
+        {
+            "matrix": [[1, 1, 1], [1, 1, 1], [1, 1, 1]],
+            "ans": 14,
+        },  # 9 of size1, 4 of size2, 1 of size3
     ]
 
     for ind, test_case in enumerate(test_cases):
