@@ -1,5 +1,6 @@
-from typing import List
 import time
+from typing import List
+
 
 class Solution:
     """
@@ -38,8 +39,8 @@ class Solution:
             for i, row in enumerate(grid):
                 for j, x in enumerate(row):
                     if x == 1:
-                        A[i] |= (1 << j)
-                        T[j] |= (1 << i)
+                        A[i] |= 1 << j
+                        T[j] |= 1 << i
 
         # Minimum bounding rectangle area containing all 1's in subgrid
         def minRect(i0, iN, j0, jN):
@@ -47,7 +48,7 @@ class Solution:
             for i in range(i0, iN + 1):
                 row = A[i]
                 mRow = (row >> j0) << j0
-                mRow &= ((1 << (jN + 1)) - 1)
+                mRow &= (1 << (jN + 1)) - 1
                 if mRow:
                     iMin = i
                     break
@@ -56,21 +57,21 @@ class Solution:
             for i in range(iN, iMin - 1, -1):
                 row = A[i]
                 mRow = (row >> j0) << j0
-                mRow &= ((1 << (jN + 1)) - 1)
+                mRow &= (1 << (jN + 1)) - 1
                 if mRow:
                     iMax = i
                     break
             for j in range(j0, jN + 1):
                 col = T[j]
                 mCol = (col >> i0) << i0
-                mCol &= ((1 << (iN + 1)) - 1)
+                mCol &= (1 << (iN + 1)) - 1
                 if mCol:
                     jMin = j
                     break
             for j in range(jN, jMin - 1, -1):
                 col = T[j]
                 mCol = (col >> i0) << i0
-                mCol &= ((1 << (iN + 1)) - 1)
+                mCol &= (1 << (iN + 1)) - 1
                 if mCol:
                     jMax = j
                     break
@@ -125,8 +126,8 @@ if __name__ == "__main__":
     sol = Solution()
 
     test_cases = [
-        {"grid": [[1,0,1],[1,1,1]], "ans": 5},
-        {"grid": [[1,0,1,0],[0,1,0,1]], "ans": 5},
+        {"grid": [[1, 0, 1], [1, 1, 1]], "ans": 5},
+        {"grid": [[1, 0, 1, 0], [0, 1, 0, 1]], "ans": 5},
     ]
 
     for ind, test_case in enumerate(test_cases):
