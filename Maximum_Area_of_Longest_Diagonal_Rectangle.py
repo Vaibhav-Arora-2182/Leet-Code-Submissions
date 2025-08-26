@@ -16,17 +16,16 @@ class Solution:
 
     def areaOfMaxDiagonal(self, dimensions: List[List[int]]) -> int:
         """
-        Approach:
-       - Use max() with a custom key.
-        - Key is a tuple: (l*l + w*w, l*w)
-          → ensures max diagonal, and max area on tie.
-        
-        Time Complexity: O(n)
-        Space Complexity: O(1)
-        """
-        l, w = max(dimensions, key=lambda x: (x[0]**2 + x[1]**2, x[0]*x[1]))
-        return l * w
+         Approach:
+        - Use max() with a custom key.
+         - Key is a tuple: (l*l + w*w, l*w)
+           → ensures max diagonal, and max area on tie.
 
+         Time Complexity: O(n)
+         Space Complexity: O(1)
+        """
+        l, w = max(dimensions, key=lambda x: (x[0] ** 2 + x[1] ** 2, x[0] * x[1]))
+        return l * w
 
 
 if __name__ == "__main__":
@@ -35,7 +34,6 @@ if __name__ == "__main__":
     test_cases = [
         {"dimensions": [[9, 3], [8, 6]], "ans": 48},
         {"dimensions": [[3, 4], [4, 3]], "ans": 12},
-        
     ]
 
     for ind, test_case in enumerate(test_cases):
