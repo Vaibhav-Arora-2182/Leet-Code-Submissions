@@ -47,7 +47,7 @@ if __name__ == "__main__":
     test_cases = [
         {"points": [[1, 1], [2, 2], [3, 3]], "ans": 0},
         {"points": [[6, 2], [4, 4], [2, 6]], "ans": 2},
-        {"points": [[3, 1], [1, 3], [1, 1]], "ans": 2},  
+        {"points": [[3, 1], [1, 3], [1, 1]], "ans": 2},
     ]
 
     for ind, test_case in enumerate(test_cases):
