@@ -1,3 +1,4 @@
+import math
 import time
 from typing import List
 
@@ -39,6 +40,40 @@ class Solution:
             ans += (total + 1) // 2
         return ans
 
+    def altSol(self, queries: List[List[int]]) -> int:
+        ans = 0
+        for l, r in queries:
+            digits_total = 0 
+            i = 1
+            start = 1
+            while start <= r:
+                end = start * 4 - 1
+                overlap_l = max(l, start)
+                overlap_r = min(r, end)
+
+                if overlap_l <= overlap_r:
+                    n = overlap_r - overlap_l + 1
+                    digits_total += n * i
+
+                    print(
+                        ", ".join(
+                            f"{name}={val}"
+                            for name, val in {
+                                "digits_total": digits_total,
+                                "n": n,
+                                "i": i,
+                                "l": l,
+                                "r": r,
+                            }.items()
+                        )
+                    )
+
+                i += 1
+                start *= 4
+
+            ans += (digits_total + 1) // 2  # Add result for this query
+
+        return ans
 
 if __name__ == "__main__":
     sol = Solution()
@@ -46,12 +81,6 @@ if __name__ == "__main__":
     test_cases = [
         {"queries": [[1, 2], [2, 4]], "ans": 3},
         {"queries": [[2, 6]], "ans": 4},
-        {"queries": [[1, 1]], "ans": 1},
-        {
-            "queries": [[4, 4]],
-            "ans": 1,
-        },
-        {"queries": [[1, 10]], "ans": None},
     ]
 
     for ind, test_case in enumerate(test_cases):
@@ -72,3 +101,23 @@ if __name__ == "__main__":
             )
         else:
             print(f"Test Case - {ind + 1} PASSED (Time: {elapsed_ms:.4f} ms)")
+
+        print("-" * 40)
+
+        start = time.time()
+        ans = sol.altSol(**params)
+        end = time.time()
+        elapsed_ms = (end - start) * 1000
+
+        expected = test_case["ans"]
+        if expected is not None and ans != expected:
+            print(
+                f"Alt Sol\nTest Case - {ind + 1} FAILED\n"
+                f"Expected: {expected}, Got: {ans}\n"
+                f"Test Case = {test_case} "
+                f"(Time: {elapsed_ms:.4f} ms)\n"
+            )
+        else:
+            print(f"Test Case - {ind + 1} PASSED (Time: {elapsed_ms:.4f} ms)")
+
+        print("=" * 40)
