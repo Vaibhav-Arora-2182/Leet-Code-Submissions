@@ -76,7 +76,7 @@ if __name__ == "__main__":
         {"numerator": 1, "denominator": 2, "ans": "0.5"},
         {"numerator": 2, "denominator": 1, "ans": "2"},
         {"numerator": 4, "denominator": 333, "ans": "0.(012)"},
-        {"numerator": 1, "denominator": 6, "ans": "0.1(6)"},  # repeating
+        {"numerator": 1, "denominator": 6, "ans": "0.1(6)"},
         {"numerator": -50, "denominator": 8, "ans": "-6.25"},
         {"numerator": 7, "denominator": -12, "ans": "-0.58(3)"},
     ]
