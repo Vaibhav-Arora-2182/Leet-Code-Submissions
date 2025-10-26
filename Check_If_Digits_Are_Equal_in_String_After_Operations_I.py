@@ -44,10 +44,10 @@ class Solution:
     """
 
     def hasSameDigits(self, s: str) -> bool:
-        while (int(s) // 100) > 0:  
+        while len(s) != 2:
             new = ""
             for ind in range(len(s) - 1):
-                new += str((int(s[ind]) + int(s[ind + 1])) % 10)
+                new += str(sum(map(int, s[ind : ind + 2])) % 10)
             s = new
         return s[0] == s[1]
 
@@ -59,6 +59,7 @@ if __name__ == "__main__":
         {"s": "3902", "ans": True},
         {"s": "34789", "ans": False},
         {"s": "141", "ans": True},
+        {"s": "8228", "ans": True},
     ]
 
     for ind, test_case in enumerate(test_cases):
